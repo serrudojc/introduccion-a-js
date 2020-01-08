@@ -123,12 +123,14 @@
 // TAREA: Ahora te toca a vos! — Obtené la etiqueta h1 de la página y guardala en una variable
 //       variable llamada nuestroTitulo.
 //       Utilizá console.log para ver lo que obtuviste!
+/*
+const varH1 = document.querySelector('h1');
+console.log(varH1); 
 
-
-
-
-
-
+console.log(varH1.innerText);
+varH1.innerText = "blablabla";
+console.log(varH1);
+*/
 /*
     Obteniendo elementos similares.
     ========================
@@ -146,9 +148,17 @@
 
 // TAREA: Obtené todos los elementos <li> de la página en una variable llamada mediaLinks.
 
+const mediaLinks = document.querySelectorAll('li');
+console.log(mediaLinks);
+//No me devolvió exactamente un array, sino un nodeList, que es como si fuera un array.
 
+for(let i=0; i<mediaLinks.length; i++){
+    console.log(mediaLinks[i]);
+}
 
-
+for(let i=0; i<mediaLinks.length; i++){
+    console.log(mediaLinks[i].innerText);
+}
 
 
 // TAREA: Ahora utilizá console.log para ver la cantidad de 
