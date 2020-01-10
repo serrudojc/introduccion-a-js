@@ -29,12 +29,11 @@ const $resultado = document.querySelector('#resultado');
 $botonIngreso.onclick = function(){
   const $salarioAnual = document.querySelector('#ingresaSalarioAnual');
   $resultado.textContent = Number($salarioAnual.value)/12;
-  console.log($salarioAnual);
+  //console.log($salarioAnual);
   console.log('hice clik');
   return false;
 }
-
-console.log($resultado);
+//console.log($resultado);
  
 
 
