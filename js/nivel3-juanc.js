@@ -147,7 +147,7 @@ console.log(varH1);
 */
 
 // TAREA: Obtené todos los elementos <li> de la página en una variable llamada mediaLinks.
-
+/*
 const mediaLinks = document.querySelectorAll('li');
 console.log(mediaLinks);
 //No me devolvió exactamente un array, sino un nodeList, que es como si fuera un array.
@@ -161,13 +161,11 @@ for(let i=0; i<mediaLinks.length; i++){
 }
 
 
+console.log(`hay ${mediaLinks.length} elememtos li en el array`);
+*/
+
 // TAREA: Ahora utilizá console.log para ver la cantidad de 
 // elementos li que hay con mediaLinks.length
-
-
-
-
-
 
 // TAREA: ¿Te acordás de los bucles del nivel 2? Usando lo que sabés de ellos, realizá iteraciones
 //      sobre cada item de mediaLinks y mostralos en pantalla con console.log
@@ -194,9 +192,11 @@ for(let i=0; i<mediaLinks.length; i++){
 // TAREA: Obtené el contenido de nuestro elemento 'h1'
 // y utilizá console.log para mostrarlo.
 
-
-
-
+/*
+const nuestroH1 = document.querySelector('h1');
+console.log(nuestroH1); 
+console.log(nuestroH1.textContent);
+*/
 
 
 /*
@@ -214,10 +214,12 @@ for(let i=0; i<mediaLinks.length; i++){
 */
 
 // TAREA: Hagamos un nuevo título! Cambiá el contenido de nuestro 'h1' y ponele lo que quieras.
+/*
+const tituloH1 = document.querySelector('h1');
+tituloH1.textContent = "Probando cambio de titulo con .textContent";
 
-
-
-
+//tituloH1.innerText = "Probando cambio de titulo con .innerText";
+*/
 
 /*
     Editando atributos
@@ -232,11 +234,11 @@ for(let i=0; i<mediaLinks.length; i++){
 */
 
 // TAREA: Actualizá el valor del atributo 'src' de nuestra etiqueta 'img' a "img/kittens.jpeg".
-
-
-
-
-
+/*
+const nuestraImg = document.querySelector('img');
+console.log(nuestraImg);
+nuestraImg.src = 'img/kittens.jpeg';
+*/
 
 /*
     Editando estilos
@@ -257,10 +259,11 @@ for(let i=0; i<mediaLinks.length; i++){
 */
 
 // Tarea: Obtené cualquier elemento de la página y cambiale algunos estilos.
-
-
-
-
+/*
+const unLink = document.querySelector('a');
+console.log(unLink);
+unLink.style.textDecoration = 'underline overline';
+*/
 
 
 /*
@@ -287,8 +290,12 @@ for(let i=0; i<mediaLinks.length; i++){
 //       en nuestra cabecera.
 //
 // P.S. También les podés dar estilos al nuevo nodo que creaste.
-
-
+/*
+const nodoCebecera = document.querySelector('header');
+const nuevaImagen = document.createElement('img');
+nuevaImagen.src = 'img/kittens.jpeg';
+nuevaImagen.appendChild(nodoCebecera);
+*/
 
 
 
