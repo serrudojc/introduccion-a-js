@@ -19,6 +19,7 @@ Ejemplo form:
 
 const $boton = document.querySelector('button');
 const $bienvenida = document.querySelector('h1');
+const $resultado = document.querySelector('#resultado');
 
 $boton.onclick = function(){
   const $nombre1 = document.querySelector('#primerNombre').value;
@@ -27,7 +28,11 @@ $boton.onclick = function(){
   const $edad = document.querySelector('#edad').value;
   
 
-  
-  $bienvenida.textContent = $nombre1;
+  //como hago para no tener que escribir "Bienvenido, "? es decir, aprovechar el texto original
+  //pq no puedo usar comillas invertidas? ´´
+  //$bienvenida.textContent = ´Bienvenido, ${$nombre1} ${$nombre2}!´;
+  $bienvenida.textContent = "Bienvenido, "+$nombre1+" "+$nombre2+" !";
+
+  $resultado.textContent = $nombre1+" "+$nombre2+" "+$apellido+" "+$edad;
   return false;
 };
