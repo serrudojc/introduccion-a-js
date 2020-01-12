@@ -30,8 +30,8 @@ $boton.onclick = function(){
 
   //como hago para no tener que escribir "Bienvenido, "? es decir, aprovechar el texto original
   //pq no puedo usar comillas invertidas? ´´
-  //$bienvenida.textContent = ´Bienvenido, ${$nombre1} ${$nombre2}!´;
-  $bienvenida.textContent = "Bienvenido, "+$nombre1+" "+$nombre2+" !";
+  $bienvenida.textContent = `Bienvenido, ${$nombre1} ${$nombre2}!`;
+  //$bienvenida.textContent = "Bienvenido, "+$nombre1+" "+$nombre2+" !";
 
   $resultado.textContent = $nombre1+" "+$nombre2+" "+$apellido+" "+$edad;
   return false;
