@@ -127,9 +127,9 @@
 const varH1 = document.querySelector('h1');
 console.log(varH1); 
 
-console.log(varH1.innerText);
-varH1.innerText = "blablabla";
-console.log(varH1);
+//console.log(varH1.innerText);
+//varH1.innerText = "blablabla";
+//console.log(varH1);
 */
 /*
     Obteniendo elementos similares.
@@ -147,10 +147,18 @@ console.log(varH1);
 */
 
 // TAREA: Obtené todos los elementos <li> de la página en una variable llamada mediaLinks.
-/*
+
 const mediaLinks = document.querySelectorAll('li');
 console.log(mediaLinks);
 //No me devolvió exactamente un array, sino un nodeList, que es como si fuera un array.
+
+// TAREA: Ahora utilizá console.log para ver la cantidad de 
+// elementos li que hay con mediaLinks.length
+
+// TAREA: ¿Te acordás de los bucles del nivel 2? Usando lo que sabés de ellos, realizá iteraciones
+//      sobre cada item de mediaLinks y mostralos en pantalla con console.log
+/*
+console.log(`hay ${mediaLinks.length} elememtos li en el array`);
 
 for(let i=0; i<mediaLinks.length; i++){
     console.log(mediaLinks[i]);
@@ -159,21 +167,7 @@ for(let i=0; i<mediaLinks.length; i++){
 for(let i=0; i<mediaLinks.length; i++){
     console.log(mediaLinks[i].innerText);
 }
-
-
-console.log(`hay ${mediaLinks.length} elememtos li en el array`);
 */
-
-// TAREA: Ahora utilizá console.log para ver la cantidad de 
-// elementos li que hay con mediaLinks.length
-
-// TAREA: ¿Te acordás de los bucles del nivel 2? Usando lo que sabés de ellos, realizá iteraciones
-//      sobre cada item de mediaLinks y mostralos en pantalla con console.log
-
-
-
-
-
 
 /*
     Propiedades de los elementos
@@ -217,10 +211,12 @@ console.log(nuestroH1.textContent);
 /*
 const tituloH1 = document.querySelector('h1');
 tituloH1.textContent = "Probando cambio de titulo con .textContent";
-
-//tituloH1.innerText = "Probando cambio de titulo con .innerText";
 */
-
+//tituloH1.innerText = "Probando cambio de titulo con .innerText";
+/*
+const nombre = prompt('como te llamàs?');
+tituloH1.textContent = "hola "+ nombre;
+*/
 /*
     Editando atributos
     ==================
@@ -239,6 +235,8 @@ const nuestraImg = document.querySelector('img');
 console.log(nuestraImg);
 nuestraImg.src = 'img/kittens.jpeg';
 */
+//Otra forma clase 6:
+//document.querySelector('img').src = 'img/kittens.jpeg';
 
 /*
     Editando estilos
@@ -279,10 +277,10 @@ unLink.style.textDecoration = 'underline overline';
     Ejemplo:
 
     const nodoPagina = document.querySelector('body');
-    const nuevoParrafo = document.createElement('p');
-    const textoParrafo = document.createTextNode('Yeeee!');
-    nuevoParrafo.appendChild(textoParrafo);
-    nodoPagina.appendChild(nuevoParrafo);
+    const nuevoParrafo = document.createElement('p'); //tag p vacio: <p></p>
+    const textoParrafo = document.createTextNode('Yeeee!'); //texto: Yeeee!
+    nuevoParrafo.appendChild(textoParrafo); //<p>Yeee !</p>
+    nodoPagina.appendChild(nuevoParrafo);   //<body......<p>Yeee !</p></body>
 */
 
 // Tarea: Todavía seguís teniendo a los gatitos en tu pantalla? A mí me gusta el logo y los gatitos.
@@ -297,8 +295,29 @@ nuevaImagen.src = 'img/kittens.jpeg';
 nuevaImagen.appendChild(nodoCebecera);
 */
 
+//resolucion video 6 Fabrizio
+/*
+document.querySelector('img').src = 'img/kittens.jpeg';
+const nodoImagen = document.createElement('img'); //creo un <img> vacio
+nodoImagen.src = 'img/woman_bw.jpg';
+document.querySelector('header').appendChild(nodoImagen); 
+*/
+/*
+//antes era asi
+<header>
+    <h1>Hola!</h1>
+    <h2>Escribamos un poco de código el día de hoy!</h2>
+  </header>
+
+  //ahora queda asi
+<header>
+    <h1>Hola!</h1>
+    <h2>Escribamos un poco de código el día de hoy!</h2>
+    <img src='img/woman_bw.jpg>
+  </header>
 
 
+  */
 
 ////////////////////////////////////////////////////////////////////////////
 // ¡Felicidades! ¡Has terminado el Nivel 3 de JavaScript Básico!          //
