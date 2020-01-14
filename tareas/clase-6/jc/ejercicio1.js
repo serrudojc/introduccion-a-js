@@ -6,6 +6,25 @@ Al hacer click en "calcular", mostrar en un elemento pre-existente la mayor edad
 Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuevamente, borrando los inputs ya creados (investigar cómo en MDN).
 */
 
+const botonNumFamiliares = document.querySelector('#btn-1');
+const nodoBody = document.querySelector('body');
+
+botonNumFamiliares.onclick = function(){
+    const numFamiliares = Number(document.querySelector('#numFamiliares').value);
+    
+
+
+    for(let i=0; i<numFamiliares; i++){
+        let nuevoLabel =document.createElement('label');
+        nodoBody.appendChild(nuevoLabel);
+    }
+    console.log('hice click');
+    return false;
+}
+
+
+
+
 
 
 
