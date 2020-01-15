@@ -7,25 +7,22 @@ Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuev
 */
 
 //----------------------------------------------------------------------------
-//Problema1: Quiero pasar un array de numeros, para q la funcion me sirva para otros casos.
-//No quiero usar .value
-//Problema2: no hice cast a Number(), es pq en el html puse input type='number'?
+//Siempre tengo que poner Number(array[i].value)? para evitar esto, tengo que crear un array auxiliar con los valores numéricos?
 function calculaMayorEdad(array){
-    let mayorEdad = array[0].value;
+    let mayorEdad = Number(array[0].value);
     for(let i=0; i<array.length; i++){
-        if(mayorEdad < array[i].value){
+        if(mayorEdad < Number(array[i].value)){
             mayorEdad = array[i].value;
         }
     }
     return mayorEdad;
 }
 
-//Duda: aca tuve que castear a Number pq si no, no funcionaba. Pq en calculaMayoredad no hace falta?
 function calculaMenorEdad(array){
-    let menorEdad = array[0].value;
+    let menorEdad = Number(array[0].value);
     for(let i=0; i<array.length; i++){
         if(menorEdad > Number(array[i].value)){
-            menorEdad = array[i].value;
+            menorEdad = Number(array[i].value);
         }
     }
     return menorEdad;
