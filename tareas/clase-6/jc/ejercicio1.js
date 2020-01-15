@@ -6,12 +6,50 @@ Al hacer click en "calcular", mostrar en un elemento pre-existente la mayor edad
 Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuevamente, borrando los inputs ya creados (investigar cómo en MDN).
 */
 
+//----------------------------------------------------------------------------
+//Problema1: Quiero pasar un array de numeros, para q la funcion me sirva para otros casos.
+//No quiero usar .value
+//Problema2: no hice cast a Number(), es pq en el html puse input type='number'?
+function calculaMayorEdad(array){
+    let mayorEdad = array[0].value;
+    for(let i=0; i<array.length; i++){
+        if(mayorEdad < array[i].value){
+            mayorEdad = array[i].value;
+        }
+    }
+    return mayorEdad;
+}
+
+function calculaMenorEdad(array){
+    let menorEdad = array[0].value;
+    for(let i=0; i<array.length; i++){
+        if(menorEdad > array[i].value){
+            menorEdad = array[i].value;
+        }
+    }
+    return menorEdad;
+}
+
+function calculaPromedioEdad(array){
+    let promedioEdad = 0;
+    for(let i=0; i<array.length; i++){
+        promedioEdad +=array[0].value;
+    }
+    return promedioEdad/array.length;
+}
+
 const botonNumFamiliares = document.querySelector('#btn-1');
+const nodoDiv = document.querySelector('#tituloForm2');
 const nodoForm2 = document.querySelector('#form2');
 
 botonNumFamiliares.onclick = function(){
     const numFamiliares = Number(document.querySelector('#numFamiliares').value);
     
+    let nuevoParrafo = document.createElement('p');
+    let textoParrafo = document.createTextNode('Ingresar la edad de tu familia');
+    nuevoParrafo.appendChild(textoParrafo);
+    nodoDiv.appendChild(nuevoParrafo);
+
     let nuevoBoton = document.createElement('button');
     let textoNuevoBoton = document.createTextNode('Calcular');
     nuevoBoton.id = 'btn-2';
@@ -21,6 +59,7 @@ botonNumFamiliares.onclick = function(){
         let nuevoLabel = document.createElement('label');
         let nuevoInput = document.createElement('input');
         nuevoInput.type = 'number';
+        nuevoInput.className = 'edades';
         let nuevoBr = document.createElement('br');
         let textoLabel = document.createTextNode('Ingresar edad ');
         
@@ -29,8 +68,25 @@ botonNumFamiliares.onclick = function(){
         nodoForm2.appendChild(nuevoInput);
         nodoForm2.appendChild(nuevoBr);
     }
+    //falta verificar que no introduzca cantidad cero o negativos.
     nodoForm2.appendChild(nuevoBoton);
-    //console.log('hice click');
+
+    //Ahora empiezo a calcular con el nuevo formulario
+    const calcular = document.querySelector('#btn-2');
+    calcular.onclick = function(){
+        const edades = document.querySelectorAll('.edades');
+    
+        let mayorEdad = calculaMayorEdad(edades);
+        let menorEdad = calculaMenorEdad(edades);
+        let promedioEdad = calculaPromedioEdad(edades);
+
+        console.log('mayor edad es '+mayorEdad);
+        for(let i=0; i<edades.length; i++){
+            console.log(edades[i].value);
+        }
+        return false;
+    }
+    
     return false;
 }
 
