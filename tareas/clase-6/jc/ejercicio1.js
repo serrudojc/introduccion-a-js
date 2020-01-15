@@ -7,20 +7,33 @@ Punto bonus: Crear un botón para "empezar de nuevo" que empiece el proceso nuev
 */
 
 const botonNumFamiliares = document.querySelector('#btn-1');
-const nodoBody = document.querySelector('body');
+const nodoForm2 = document.querySelector('#form2');
 
 botonNumFamiliares.onclick = function(){
     const numFamiliares = Number(document.querySelector('#numFamiliares').value);
     
-
+    let nuevoBoton = document.createElement('button');
+    let textoNuevoBoton = document.createTextNode('Calcular');
+    nuevoBoton.id = 'btn-2';
+    nuevoBoton.appendChild(textoNuevoBoton);
 
     for(let i=0; i<numFamiliares; i++){
-        let nuevoLabel =document.createElement('label');
-        nodoBody.appendChild(nuevoLabel);
+        let nuevoLabel = document.createElement('label');
+        let nuevoInput = document.createElement('input');
+        nuevoInput.type = 'number';
+        let nuevoBr = document.createElement('br');
+        let textoLabel = document.createTextNode('Ingresar edad ');
+        
+        nuevoLabel.appendChild(textoLabel);
+        nodoForm2.appendChild(nuevoLabel);
+        nodoForm2.appendChild(nuevoInput);
+        nodoForm2.appendChild(nuevoBr);
     }
-    console.log('hice click');
+    nodoForm2.appendChild(nuevoBoton);
+    //console.log('hice click');
     return false;
 }
+
 
 
 
