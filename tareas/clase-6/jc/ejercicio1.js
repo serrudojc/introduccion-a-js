@@ -95,18 +95,30 @@ botonNumFamiliares.onclick = function(){
         nuevoParrafoProm.appendChild(textoPromedioEdad);
         nodoDivResultados.appendChild(nuevoParrafoProm);
 
+        let resetBoton = document.createElement('button');
+        let textoResetBoton = document.createTextNode('Resetear');
+        resetBoton.id = 'btn-3';
+        resetBoton.type = 'reset';
+        resetBoton.appendChild(textoResetBoton);
+
+        nodoDivResultados.appendChild(resetBoton);
+
+        let resetearInput = document.querySelector('#btn-3');
+        resetBoton.onclick = function(){
+            while(nodoForm2.hasChildNodes()){
+                nodoForm2.removeChild(nodoForm2.firstChild);
+            }
+            while(nodoDivResultados.hasChildNodes()){
+                nodoDivResultados.removeChild(nodoDivResultados.firstChild);
+            }
+            nodoDiv.removeChild(nodoDiv.firstChild);
+            document.querySelector('#form1').reset();
+            return false;
+        }
         return false;
     }
-    
     return false;
 }
-
-
-
-
-
-
-
 
 /*
 TAREA:
