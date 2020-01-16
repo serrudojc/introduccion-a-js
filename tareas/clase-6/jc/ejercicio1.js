@@ -18,11 +18,13 @@ function calculaMayorEdad(array){
     return mayorEdad;
 }
 
+//otra forma de hacer lo mismo que arriba, pero sin usar tantos Number();
 function calculaMenorEdad(array){
     let menorEdad = Number(array[0].value);
     for(let i=0; i<array.length; i++){
-        if(menorEdad > Number(array[i].value)){
-            menorEdad = Number(array[i].value);
+        const edad = Number(array[i].value);
+        if(menorEdad > edad){
+            menorEdad = edad;
         }
     }
     return menorEdad;
@@ -36,22 +38,21 @@ function calculaPromedioEdad(array){
     return (promedioEdad/array.length).toFixed(2);
 }
 
-const botonNumFamiliares = document.querySelector('#btn-1');
-const nodoDiv = document.querySelector('#tituloForm2');
-const nodoForm2 = document.querySelector('#form2');
+const botonNumFamiliares = document.querySelector('#crear-integrantes');
+const titulo = document.querySelector('#titulo-form-integrantes');
+const nodoForm2 = document.querySelector('#form-integrantes');
 
 botonNumFamiliares.onclick = function(){
-    const numFamiliares = Number(document.querySelector('#numFamiliares').value);
+    const numFamiliares = Number(document.querySelector('#num-familiares').value);
     
-    let nuevoParrafo = document.createElement('p');
+    const nuevoParrafo = document.createElement('p');
     let textoParrafo = document.createTextNode('Ingresar la edad de tu familia');
     nuevoParrafo.appendChild(textoParrafo);
-    nodoDiv.appendChild(nuevoParrafo);
+    titulo.appendChild(nuevoParrafo);
 
-    let nuevoBoton = document.createElement('button');
-    let textoNuevoBoton = document.createTextNode('Calcular');
-    nuevoBoton.id = 'btn-2';
-    nuevoBoton.appendChild(textoNuevoBoton);
+    let botonCalcularEdades = document.createElement('button');
+    let textoBotonCalcularEdades = document.createTextNode('Calcular');
+    botonCalcularEdades.appendChild(textoBotonCalcularEdades);
 
     for(let i=0; i<numFamiliares; i++){
         let nuevoLabel = document.createElement('label');
@@ -67,14 +68,13 @@ botonNumFamiliares.onclick = function(){
         nodoForm2.appendChild(nuevoBr);
     }
     //falta verificar que no introduzca cantidad cero o negativos.
-    nodoForm2.appendChild(nuevoBoton);
+    nodoForm2.appendChild(botonCalcularEdades);
 
     //Ahora empiezo a calcular con el nuevo formulario
-    const calcular = document.querySelector('#btn-2');
-    calcular.onclick = function(){
+    botonCalcularEdades.onclick = function(){
         const edades = document.querySelectorAll('.edades');
 
-        const nodoDivResultados = document.querySelector('#resultados');
+        const tituloResultados = document.querySelector('#resultados');
     
         let mayorEdad = calculaMayorEdad(edades);
         let menorEdad = calculaMenorEdad(edades);
@@ -89,11 +89,11 @@ botonNumFamiliares.onclick = function(){
         let textoPromedioEdad = document.createTextNode('Promedio de edad son '+promedioEdad+' años.');
 
         nuevoParrafoMayor.appendChild(textoMayorEdad);
-        nodoDivResultados.appendChild(nuevoParrafoMayor);
+        tituloResultados.appendChild(nuevoParrafoMayor);
         nuevoParrafoMenor.appendChild(textoMenorEdad);
-        nodoDivResultados.appendChild(nuevoParrafoMenor);
+        tituloResultados.appendChild(nuevoParrafoMenor);
         nuevoParrafoProm.appendChild(textoPromedioEdad);
-        nodoDivResultados.appendChild(nuevoParrafoProm);
+        tituloResultados.appendChild(nuevoParrafoProm);
 
         let resetBoton = document.createElement('button');
         let textoResetBoton = document.createTextNode('Resetear');
@@ -101,18 +101,18 @@ botonNumFamiliares.onclick = function(){
         resetBoton.type = 'reset';
         resetBoton.appendChild(textoResetBoton);
 
-        nodoDivResultados.appendChild(resetBoton);
+        tituloResultados.appendChild(resetBoton);
 
         let resetearInput = document.querySelector('#btn-3');
         resetBoton.onclick = function(){
             while(nodoForm2.hasChildNodes()){
                 nodoForm2.removeChild(nodoForm2.firstChild);
             }
-            while(nodoDivResultados.hasChildNodes()){
-                nodoDivResultados.removeChild(nodoDivResultados.firstChild);
+            while(tituloResultados.hasChildNodes()){
+                tituloResultados.removeChild(tituloResultados.firstChild);
             }
-            nodoDiv.removeChild(nodoDiv.firstChild);
-            document.querySelector('#form1').reset();
+            titulo.removeChild(titulo.firstChild);
+            document.querySelector('#form-cant-integrantes').reset();
             return false;
         }
         return false;
